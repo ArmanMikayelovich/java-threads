@@ -1,4 +1,4 @@
-package com.energizeglobal.com.executors;
+package com.energizeglobal.internship.executors;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

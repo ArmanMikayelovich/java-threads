@@ -1,4 +1,4 @@
-package com.energizeglobal.com.locks;
+package com.energizeglobal.internship.tests.locks;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;

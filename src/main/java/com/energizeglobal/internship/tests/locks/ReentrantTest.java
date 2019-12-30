@@ -1,6 +1,4 @@
-package com.energizeglobal.com.locks;
-
-import com.sun.org.apache.regexp.internal.RE;
+package com.energizeglobal.internship.tests.locks;
 
 import java.util.concurrent.locks.ReentrantLock;
 

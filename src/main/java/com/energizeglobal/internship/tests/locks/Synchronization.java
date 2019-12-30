@@ -1,4 +1,4 @@
-package com.energizeglobal.com.locks;
+package com.energizeglobal.internship.tests.locks;
 
 public class Synchronization {
     public static void main(String[] args) {

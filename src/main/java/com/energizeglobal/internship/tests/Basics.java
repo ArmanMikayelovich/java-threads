@@ -1,4 +1,4 @@
-package com.energizeglobal.com;
+package com.energizeglobal.internship.tests;
 
 public class Basics {
     static final Thread.UncaughtExceptionHandler UNCAUGHT_EXCEPTION_HANDLER = getOurUncaughtExceptionHandler();
