@@ -5,20 +5,23 @@ import com.energizeglobal.internship.cafe.coffee.Espresso;
 import com.energizeglobal.internship.cafe.coffee.SugarQuantity;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 public class EspressoMachine extends CoffeeMachine {
 
     @Override
-    public void addTask(Callable<? extends Coffee> coffeeTask) {
-        coffeeMakerExecutorService.submit(coffeeTask);
+    public Future<? extends Coffee> addTask(Callable<? extends Coffee> coffeeTask) {
+        final Future<? extends Coffee> submit = coffeeMakerExecutorService.submit(coffeeTask);
+        return submit;
     }
 
-    public void makeEspresso(int orderId, int quantity, SugarQuantity sugarQuantity) {
+    public Espresso makeEspresso(int orderId, int quantity, SugarQuantity sugarQuantity) throws ExecutionException, InterruptedException {
         Callable<Espresso> espressoCallable = () -> {
-            Thread.sleep(200);
+            Thread.sleep(1000);
             return new Espresso(orderId, quantity, sugarQuantity);
         };
-        addTask(espressoCallable);
+        return (Espresso) addTask(espressoCallable).get();
     }
 
 }

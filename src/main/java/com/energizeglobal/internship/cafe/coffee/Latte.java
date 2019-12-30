@@ -7,8 +7,8 @@ public class Latte extends Espresso {
         return coffeeStumpText;
     }
 
-    public Latte(int orderId,int quantity, SugarQuantity sugarQuantity, String coffeeStumpText) {
-        super( orderId,quantity, sugarQuantity);
+    public Latte(int orderId, int quantity, SugarQuantity sugarQuantity, String coffeeStumpText) {
+        super(orderId, quantity, sugarQuantity);
         this.coffeeStumpText = coffeeStumpText;
     }
 
