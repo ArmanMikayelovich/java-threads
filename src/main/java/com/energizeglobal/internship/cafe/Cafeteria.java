@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 /**
- * We have Cafeteria with 3 coffee machines.
+ * We have Cafeteria with X coffee machines.
  * Two of them can make espresso and latte, and another one can make only espresso.
  * Need to provide trusty and effective Queue for orders.
  */
@@ -19,18 +19,18 @@ public class Cafeteria {
 
     private static final int ONE_MILLION = 1_000_000;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         final LatteMachine latteMachine1 = new LatteMachine();
         final LatteMachine latteMachine2 = new LatteMachine();
         final EspressoMachine espressoMachine = new EspressoMachine();
         final OrderTaker waiter = new OrderTaker(latteMachine1, latteMachine2);
         waiter.addCoffeeMachine(espressoMachine);
-        for (int x = 0; x < 5; x++) {
+        for (int x = 0; x < 10; x++) {
             final FutureTask<Latte> latteFutureTask = new FutureTask<>(getLatte(waiter));
             final FutureTask<Espresso> espressoFutureTask = new FutureTask<>(getEspresso(waiter));
             new Thread(latteFutureTask).start();
+            Thread.sleep(25);
             new Thread(espressoFutureTask).start();
-            latteMachine1.getTasksCount();
         }
 
     }

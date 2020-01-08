@@ -3,15 +3,14 @@ package com.energizeglobal.internship.cafe.coffee_machines;
 import com.energizeglobal.internship.cafe.coffee.Coffee;
 
 import java.util.Objects;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 public abstract class CoffeeMachine {
+    protected ConcurrentLinkedQueue<Callable<? extends Coffee>> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+
     protected ThreadPoolExecutor coffeeMakerExecutorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
 
-    public abstract Future<? extends Coffee> addTask(Callable<? extends Coffee> coffeeTask);
+    protected abstract Future<? extends Coffee> addTask(Callable<? extends Coffee> coffeeTask) throws InterruptedException;
 
     public Integer getTasksCount() {
         return coffeeMakerExecutorService.getQueue().size();
