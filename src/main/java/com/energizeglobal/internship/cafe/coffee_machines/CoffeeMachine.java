@@ -1,7 +1,8 @@
-package com.energizeglobal.internship.cafe.coffeeMachines;
+package com.energizeglobal.internship.cafe.coffee_machines;
 
 import com.energizeglobal.internship.cafe.coffee.Coffee;
 
+import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -23,7 +24,7 @@ public abstract class CoffeeMachine {
 
         CoffeeMachine that = (CoffeeMachine) o;
 
-        return coffeeMakerExecutorService != null ? coffeeMakerExecutorService.equals(that.coffeeMakerExecutorService) : that.coffeeMakerExecutorService == null;
+        return Objects.equals(coffeeMakerExecutorService, that.coffeeMakerExecutorService);
     }
 
     @Override

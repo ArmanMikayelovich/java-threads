@@ -2,9 +2,9 @@ package com.energizeglobal.internship.cafe;
 
 import com.energizeglobal.internship.cafe.coffee.Coffee;
 import com.energizeglobal.internship.cafe.coffee.SugarQuantity;
-import com.energizeglobal.internship.cafe.coffeeMachines.CoffeeMachine;
-import com.energizeglobal.internship.cafe.coffeeMachines.EspressoMachine;
-import com.energizeglobal.internship.cafe.coffeeMachines.LatteMachine;
+import com.energizeglobal.internship.cafe.coffee_machines.CoffeeMachine;
+import com.energizeglobal.internship.cafe.coffee_machines.EspressoMachine;
+import com.energizeglobal.internship.cafe.coffee_machines.LatteMachine;
 import com.energizeglobal.internship.cafe.util.OrderTakerUtil;
 import com.energizeglobal.internship.cafe.util.exceptions.IllegalCoffeeOrderException;
 
@@ -30,7 +30,7 @@ public class OrderTaker {
 
     public void addCoffeeMachine(CoffeeMachine coffeeMachine) {
         if (coffeeMachine instanceof LatteMachine) {
-            coffeeMachines.add((LatteMachine) coffeeMachine);
+            coffeeMachines.add(coffeeMachine);
         }
 
     }
@@ -60,6 +60,7 @@ public class OrderTaker {
             throw new IllegalCoffeeOrderException(coffeeOrder);
         }
     }
+
 
 
 }

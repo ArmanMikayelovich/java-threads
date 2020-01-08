@@ -17,7 +17,7 @@ public class ExecutorTest2 {
 
     private static void testInvokeAll() throws InterruptedException, ExecutionException {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        //chached Thread pool creates threads if that's needed, and kill them after 60 sec of sleeping.
+        //cached Thread pool creates threads if that's needed, and kill them after 60 sec of sleeping.
         Callable<Long> callable = () -> {
             Thread.currentThread().setName("Thread in pool: " + Thread.currentThread().getId());
             System.out.println("Thread name: " + Thread.currentThread().getName());

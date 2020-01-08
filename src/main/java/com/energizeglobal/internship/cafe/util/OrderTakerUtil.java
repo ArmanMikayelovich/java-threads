@@ -1,23 +1,24 @@
 package com.energizeglobal.internship.cafe.util;
 
 import com.energizeglobal.internship.cafe.coffee.SugarQuantity;
-import com.energizeglobal.internship.cafe.coffeeMachines.CoffeeMachine;
-import com.energizeglobal.internship.cafe.coffeeMachines.CoffeeMachineQueueComparator;
-import com.energizeglobal.internship.cafe.coffeeMachines.LatteMachine;
+import com.energizeglobal.internship.cafe.coffee_machines.CoffeeMachine;
+import com.energizeglobal.internship.cafe.coffee_machines.CoffeeMachineQueueComparator;
+import com.energizeglobal.internship.cafe.coffee_machines.LatteMachine;
 import com.energizeglobal.internship.cafe.util.exceptions.IllegalCoffeeOrderException;
 import com.energizeglobal.internship.cafe.util.exceptions.NoCoffeeMachinesException;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class OrderTakerUtil {
+    private OrderTakerUtil(){}
     public static String[] getCoffeeParams(String order) {
-        String params[] = order.split("-");
+        String[] params = order.split("-");
         if (params.length == 3 || params.length == 4) {
-            if (!params[0].equalsIgnoreCase("ESPRESSO") & !params[0].equalsIgnoreCase("LATTE")) {
+            if (!params[0].equalsIgnoreCase("ESPRESSO")
+                    && !params[0].equalsIgnoreCase("LATTE")) {
                 throw new IllegalCoffeeOrderException(order);
             }
             try {
@@ -53,7 +54,7 @@ public class OrderTakerUtil {
         }
         CoffeeMachineQueueComparator<? extends CoffeeMachine> comparator = new CoffeeMachineQueueComparator<>();
         final ArrayList<? extends CoffeeMachine> coffeeMachines1 = new ArrayList<>(coffeeMachines);
-        Collections.sort(coffeeMachines1, comparator);
+        coffeeMachines1.sort(comparator);
         return coffeeMachines1.get(coffeeMachines.size() - 1);
     }
 }

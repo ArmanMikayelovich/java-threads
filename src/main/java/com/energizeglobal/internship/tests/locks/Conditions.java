@@ -3,7 +3,7 @@ package com.energizeglobal.internship.tests.locks;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Contidtions {
+public class Conditions {
     static final ReentrantLock REENTRANT_LOCK = new ReentrantLock();
     static final Condition CONDITION = REENTRANT_LOCK.newCondition();
     static volatile int COUNT = 0;

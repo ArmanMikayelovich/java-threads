@@ -1,7 +1,7 @@
 package com.energizeglobal.internship.cafe.coffee;
 
 public abstract class Coffee {
-    int orderId;
+    private int orderId;
     private SugarQuantity sugarQuantity;
 
     public Coffee(int orderId, SugarQuantity sugarQuantity) {
@@ -9,7 +9,10 @@ public abstract class Coffee {
         this.sugarQuantity = sugarQuantity;
     }
 
-    public SugarQuantity getSugarQuantity() {
-        return sugarQuantity;
+    @Override
+    public String toString() {
+        return "Coffee " +
+                "orderId=" + orderId +
+                ", sugarQuantity= " + sugarQuantity;
     }
 }

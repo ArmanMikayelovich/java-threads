@@ -1,4 +1,4 @@
-package com.energizeglobal.internship.cafe.coffeeMachines;
+package com.energizeglobal.internship.cafe.coffee_machines;
 
 import java.util.Comparator;
 

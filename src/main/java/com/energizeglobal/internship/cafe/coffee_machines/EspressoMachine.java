@@ -1,4 +1,4 @@
-package com.energizeglobal.internship.cafe.coffeeMachines;
+package com.energizeglobal.internship.cafe.coffee_machines;
 
 import com.energizeglobal.internship.cafe.coffee.Coffee;
 import com.energizeglobal.internship.cafe.coffee.Espresso;
@@ -12,13 +12,12 @@ public class EspressoMachine extends CoffeeMachine {
 
     @Override
     public Future<? extends Coffee> addTask(Callable<? extends Coffee> coffeeTask) {
-        final Future<? extends Coffee> submit = coffeeMakerExecutorService.submit(coffeeTask);
-        return submit;
+        return coffeeMakerExecutorService.submit(coffeeTask);
     }
 
     public Espresso makeEspresso(int orderId, int quantity, SugarQuantity sugarQuantity) throws ExecutionException, InterruptedException {
         Callable<Espresso> espressoCallable = () -> {
-            Thread.sleep(1000);
+            Thread.sleep(200);
             return new Espresso(orderId, quantity, sugarQuantity);
         };
         return (Espresso) addTask(espressoCallable).get();
