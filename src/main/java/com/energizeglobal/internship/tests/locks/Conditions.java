@@ -4,9 +4,9 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Conditions {
-    static final ReentrantLock REENTRANT_LOCK = new ReentrantLock();
-    static final Condition CONDITION = REENTRANT_LOCK.newCondition();
-    static volatile int COUNT = 0;
+   private static final ReentrantLock REENTRANT_LOCK = new ReentrantLock();
+   private static final Condition CONDITION = REENTRANT_LOCK.newCondition();
+   private static volatile int COUNT = 0;
 
     public static void main(String[] args) throws InterruptedException {
         Runnable runnable = () -> {

@@ -3,7 +3,7 @@ package com.energizeglobal.internship.tests.locks;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantTest {
-    final static ReentrantLock REENTRANT_LOCK = new ReentrantLock();
+   private static final ReentrantLock REENTRANT_LOCK = new ReentrantLock();
 
     public static void main(String[] args) {
         Runnable runnable = () -> {

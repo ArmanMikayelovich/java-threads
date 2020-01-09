@@ -8,9 +8,7 @@ public class ExecutorTest2 {
     public static void main(String[] args) {
         try {
             testInvokeAll();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }

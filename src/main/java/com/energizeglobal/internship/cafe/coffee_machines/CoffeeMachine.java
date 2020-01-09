@@ -13,7 +13,7 @@ public abstract class CoffeeMachine {
     protected abstract Future<? extends Coffee> addTask(Callable<? extends Coffee> coffeeTask) throws InterruptedException;
 
     public Integer getTasksCount() {
-        return coffeeMakerExecutorService.getQueue().size();
+        return concurrentLinkedQueue.size();
     }
 
     @Override

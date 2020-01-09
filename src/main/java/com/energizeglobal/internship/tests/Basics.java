@@ -1,7 +1,7 @@
 package com.energizeglobal.internship.tests;
 
 public class Basics {
-    static final Thread.UncaughtExceptionHandler UNCAUGHT_EXCEPTION_HANDLER = getOurUncaughtExceptionHandler();
+   private static final Thread.UncaughtExceptionHandler UNCAUGHT_EXCEPTION_HANDLER = getOurUncaughtExceptionHandler();
 
 
     private static Thread.UncaughtExceptionHandler getOurUncaughtExceptionHandler() {
@@ -25,7 +25,7 @@ public class Basics {
         Runnable runnable = () -> {
             Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
             try {
-                Thread.currentThread().sleep(1);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());

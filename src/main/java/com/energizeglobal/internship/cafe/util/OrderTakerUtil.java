@@ -26,11 +26,7 @@ public class OrderTakerUtil {
                 if (coffeeQuantity < 1 || coffeeQuantity > 3) {
                     throw new IllegalCoffeeOrderException(order);
                 }
-            } catch (NumberFormatException ignored) {
-                throw new IllegalCoffeeOrderException(order);
-            }
-            try {
-                final int sugarQuantity = Integer.parseInt(params[1]);
+                final int sugarQuantity = Integer.parseInt(params[2]);
                 if (sugarQuantity < 0 || sugarQuantity > SugarQuantity.values().length) {
                     throw new IllegalCoffeeOrderException(order);
                 }

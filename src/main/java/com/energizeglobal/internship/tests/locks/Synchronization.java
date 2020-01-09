@@ -5,7 +5,7 @@ public class Synchronization {
         Runnable runnable = () -> {
             try {
                 print();
-                printNotSynch();
+                printNotSync();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -20,7 +20,7 @@ public class Synchronization {
         new Thread(runnable).start();
     }
 
-    public static synchronized void print() throws InterruptedException {
+    private static synchronized void print() throws InterruptedException {
         System.out.println();
         long startTime = System.nanoTime();
         String threadCredentials = Thread.currentThread().getName() + ": " + Thread.currentThread().getId();
@@ -31,7 +31,7 @@ public class Synchronization {
                 "ms for print this section");
     }
 
-    public static  void printNotSynch() throws InterruptedException {
+    private static  void printNotSync() throws InterruptedException {
         System.out.println();
         long startTime = System.nanoTime();
         String threadCredentials = Thread.currentThread().getName() + ": " + Thread.currentThread().getId();
